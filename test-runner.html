@@ -8,10 +8,15 @@
   <pre id="results"></pre>
   <script src="test.js"></script>
   <script>
-    const results = testHTML();
-    const output = results.map(r => `${r.status.toUpperCase()}: ${r.message}`).join('\n');
-    document.getElementById('results').textContent = output;
-    console.log(output);
+    try {
+      const results = testHTML();
+      const output = results.map(r => `${r.status.toUpperCase()}: ${r.message}`).join('\n');
+      document.getElementById('results').textContent = output;
+      console.log(output);
+    } catch (e) {
+      document.getElementById('results').textContent = e.message;
+      console.error(e.message);
+    }
   </script>
 </body>
 </html>
